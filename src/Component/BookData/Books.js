@@ -21,8 +21,7 @@ const Books = ({books}) => {
         <div className="container">{
             books.map((item, index) =>{
                 let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail
-                let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
-                if(thumbnail !== undefined && amount !== undefined) {
+                if(thumbnail !== undefined) {
                     return (
                             <div className="card" key={index} onClick={() => handleBookClick(item)}>
                                 <img src={thumbnail} alt="books" />
@@ -31,6 +30,9 @@ const Books = ({books}) => {
                                 </div>
                             </div> 
                     )
+                }
+                else {
+                    return null; // Return null for elements without thumbnail or amount
                 }
             })
             
