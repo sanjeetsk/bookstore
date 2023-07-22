@@ -3,7 +3,7 @@
 import React,{useEffect, useState} from "react";
 import axios from "axios";
 import Navbar from "./Component/Navbar/Navbar";
-import Body from "./Component/Body/Body";
+import Books from "./Component/BookData/Books"
 
 const App = () =>{
   const [books, setBooks] = useState([]);
@@ -22,7 +22,7 @@ const App = () =>{
   return(
       <div>
         <Navbar onSearch={fetchBooks} />
-        <Body books={bookData}/>
+        <Books books={bookData}/>
       </div>
   )
 }
