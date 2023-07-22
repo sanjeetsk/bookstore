@@ -6,12 +6,15 @@ const Books = ({books}) => {
     const [book, setBook] = useState([]);
     const [selectedBook, setSelectedBook] = useState(false);
 
-    console.log(books);
-
     const handleBookClick = (item) => {
         setSelectedBook(true);
         setBook(item);
     };
+    
+    const handleClose = () =>{
+        setSelectedBook(false);
+        setBook([]);
+    }
  
     return(
         <>
@@ -25,7 +28,6 @@ const Books = ({books}) => {
                                 <img src={thumbnail} alt="books" />
                                 <div className="bottom">
                                     <h3 className="title">{item.volumeInfo.title}</h3>
-                                    <p className="amount">&#8377;{amount}</p>
                                 </div>
                             </div> 
                     )
@@ -34,7 +36,7 @@ const Books = ({books}) => {
             
         }
         </div>
-        <BookDetail book={book} show={selectedBook} />
+        <BookDetail book={book} show={selectedBook} onClose={handleClose}/>
         </>
     )
 }

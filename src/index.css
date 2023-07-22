@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #999;
 }
 
 code {
@@ -64,7 +65,7 @@ button {
     border-radius: 1rem;
     padding: 0.5rem;
     margin-bottom: 10px;
-    box-shadow: 0 5px 5px rgba(212, 185, 150, .5);
+    box-shadow: 0 5px 5px black;
     transition: .5s;
     text-align: center;
     position: relative; 
@@ -72,7 +73,7 @@ button {
 
 .card:hover{
   transform: scale(.97) translateY(-3%);
-  background-color: rgba(208 242 255 / 50%);
+  background-color: rgba(113, 215, 255, 0.5);
 }
 
 .card img{
@@ -118,25 +119,28 @@ button {
 }
 
 .overlay-inner{
-  background: white;
+  background: lightgray;
   width: 700px;
-  height: 550px;
+  max-height: 80vh;
   padding: 1.5rem;
   position: 1.5rem;
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
   font-size: 1.3rem;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px 5px gray;
 }
 
 .overlay-inner .close{
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  outline: none;
-  border: none;
-  font-size: 17px;
-  background-color: transparent;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-size: larger;
 }
 
 .overlay-inner .inner-box{
@@ -156,6 +160,26 @@ button {
   color: green;
 }
 
+.overlay-inner .inner-box h4{
+  color: blue;
+}
+
+.overlay-inner .inner-box button{
+  outline: none;
+  border: none;
+  width: 100px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  color: white;
+  font-weight: bold;
+  padding: 0.3rem 0.5 rem;
+}
+
+.overlay-inner .description{
+  margin-top: 2rem;
+  text-align: justify;
+  font-size: 13px;
+}
 
 
 

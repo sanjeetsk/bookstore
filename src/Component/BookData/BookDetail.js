@@ -1,7 +1,7 @@
 // Inside BookDetail.js
 import React from 'react';
 
-const BookDetail = ({ book, show }) => {
+const BookDetail = ({ book, show, onClose }) => {
 
     if(!show){
         return null;
@@ -12,17 +12,18 @@ const BookDetail = ({ book, show }) => {
     return(
         <div className='overlay'>
             <div className='overlay-inner'>
-                <button className='close'><i className="fa-regular fa-circle-xmark"></i></button>
+                <button className='close' onClick={onClose}><i className="fa-regular fa-circle-xmark"></i></button>
                 <div className='inner-box'>
                     <img src={thumbnail} alt='book'></img>
-                    <div className='info'></div>
-                    <h1>{book.volumeInfo.title}</h1>
-                    <h3>{book.volumeInfo.authors}</h3>
-                    <h4>{book.volumeInfo.publisher}</h4>
-                    <a href='#'><button>More</button></a>
+                    <div className='info'>
+                        <h1>{book.volumeInfo.title}</h1>
+                        <h3>{book.volumeInfo.authors}</h3>
+                        <h4>{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4>
+                        <a href={book.volumeInfo.previewLink}><button>More Info!</button></a>
+                    </div>
                 </div>
+                <h4 className='description'>{book.volumeInfo.description}</h4>
             </div>
-            <h4 className='description'></h4>
         </div>
     ) 
 
