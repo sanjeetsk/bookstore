@@ -6,7 +6,7 @@ import Navbar from "./Component/Navbar/Navbar";
 import Books from "./Component/BookData/Books"
 
 const App = () =>{
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
   const [bookData, setBookData] = useState([]);
 
   useEffect(() => {
