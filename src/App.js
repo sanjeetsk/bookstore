@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// api key = AIzaSyBB0_F4CGRPlkVkqwibSTzfyR2wX3b84UM
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React,{useEffect, useState} from "react";
+import axios from "axios";
+import Navbar from "./Component/Navbar/Navbar";
+import Body from "./Component/Body/Body";
+
+const App = () =>{
+  const [books, setBooks] = useState([]);
+  const [bookData, setBookData] = useState([]);
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const fetchBooks = async (query) => {
+      axios.get('https://www.googleapis.com/books/v1/volumes?q='+query+'&key=AIzaSyBB0_F4CGRPlkVkqwibSTzfyR2wX3b84UM')
+      .then((res) => setBookData(res.data.items))
+      .catch((err) => console.log(err))
+  }
+
+  return(
+      <div>
+        <Navbar onSearch={fetchBooks} />
+        <Body books={bookData}/>
+      </div>
+  )
 }
 
 export default App;
